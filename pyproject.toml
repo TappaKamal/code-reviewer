@@ -1,0 +1,34 @@
+[project]
+name = "multi-agent-code-reviewer"
+version = "0.1.0"
+description = "An automated multi-agent system for Python code review — combining static analysis, security scanning, and Gemini-based LLM feedback."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Your Name", email = "your.email@example.com" }
+]
+
+dependencies = [
+  "tree_sitter>=0.21.3",
+  "google-generativeai>=0.7.2",
+  "regex>=2024.5.15",
+  "pydantic>=2.8.0",
+  "rich>=13.7.0",
+  "typer[all]>=0.12.3",
+  "radon>=6.0.1"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2.0"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["reviewer_core*", "cli*"]

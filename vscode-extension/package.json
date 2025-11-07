@@ -1,0 +1,38 @@
+{
+  "name": "multi-agent-code-review",
+  "displayName": "Multi-Agent Code Review",
+  "description": "Automated multi-agent code reviewer using static analysis, security scanning, and Gemini LLM.",
+  "publisher": "yourname",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:review.runFile"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "review.runFile",
+        "title": "Run Multi-Agent Code Review"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --platform=node --external:vscode",
+    "watch": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --platform=node --external:vscode --watch"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.21.5",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "vscode": "^1.1.37"
+  }
+}
